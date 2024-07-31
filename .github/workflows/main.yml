@@ -59,7 +59,7 @@ jobs:
   docker-ci:
     name: Build and Push image
     runs-on: ubuntu-latest
-    if: github.ref_name == 'main'
+    needs: ['python-ci']
 
     steps:
     - name: Upload python artifacts
