@@ -61,7 +61,6 @@ jobs:
     name: Build and Push image
     runs-on: ubuntu-latest
     if: ${{ github.ref_name == 'main' }}
-    needs: ['python-ci']
 
     steps:
     - name: Upload python artifacts
@@ -82,4 +81,3 @@ jobs:
         context: ./src
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}
-
